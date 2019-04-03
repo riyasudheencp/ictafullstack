@@ -1,0 +1,5 @@
+myfile=open("newfile.txt",'r')
+# myfile.write("icta campus")
+print(myfile.read())
+myfile.close()
+# print("file generated")

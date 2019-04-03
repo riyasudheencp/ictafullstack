@@ -1,0 +1,6 @@
+mytuple=("name",2)
+mytuple2=("name1",4)
+print(mytuple)
+print(mytuple[0])
+print(mytuple*2)
+print(mytuple+mytuple2)
