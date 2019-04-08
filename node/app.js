@@ -10,7 +10,7 @@ app.get('/contact',(req,res)=>{
     res.send("my contact page");
 });
 app.get('/home/contact',(req,res)=>{
-    res.send("my contact page");
+    res.send('[{"name":"riyas",age:23}{"name":"nikhil""age":25}]');
 });
 
 app.listen(5000);
