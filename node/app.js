@@ -1,13 +1,37 @@
 const express=require('express');
+const x=require('express-handlebars');
 var app=express();
+app.engine('handlebars',x({defaultLayout:'mainpage'}));
+app.set('view engine','handlebars');
+app.use(express.static('views/static'));
+app.use(express.urlencoded());
+app.post('/data',(req,res)=>{
+    var name=req.body.name;
+    var adress=req.body.adress;
+    var place=req.body.place;
+    var mobile=req.body.mobile;
+    var email=req.body.email;
+
+console.log(name,adress,place,mobile,email);
+
+
+
+});
 app.get('/',(req,res)=>{
-    res.send("hello frinds");
+    res.render("index");
 });
 app.get('/home',(req,res)=>{
     res.send("welcome");
 });
+app.get('/about',(req,res)=>{
+    res.render("about");
+});
+
 app.get('/contact',(req,res)=>{
-    res.send("my contact page");
+    res.render("contact");
+});
+app.get('/gallary',(req,res)=>{
+    res.render("gallary");
 });
 app.get('/home/contact',(req,res)=>{
     res.send('[{"name":"riyas",age:23}{"name":"nikhil""age":25}]');
