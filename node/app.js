@@ -17,8 +17,22 @@ console.log(name,adress,place,mobile,email);
 
 
 });
+app.post('/login',(req,res)=>{
+    var user=req.body.username;
+    var pass=req.body.password;
+    if (user=="admin"&&pass=="1234"){
+        res.send("succesfulle");
+    }
+        else{
+            res.send("failed");
+        }
+
+    
+       
+
+});
 app.get('/',(req,res)=>{
-    res.render("index");
+    res.render("index",{name:"riyas"});
 });
 app.get('/home',(req,res)=>{
     res.send("welcome");
@@ -37,4 +51,6 @@ app.get('/home/contact',(req,res)=>{
     res.send('[{"name":"riyas",age:23}{"name":"nikhil""age":25}]');
 });
 
-app.listen(5000);
+app.listen(process.env.port || 5000,()=>{
+    console.log('running stage')
+});
